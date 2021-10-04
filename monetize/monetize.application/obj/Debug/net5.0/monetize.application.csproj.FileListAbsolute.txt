@@ -1,0 +1,17 @@
+/home/psych0wav3/Documentos/dev/monetize/monetize/monetize.application/bin/Debug/net5.0/monetize.application.deps.json
+/home/psych0wav3/Documentos/dev/monetize/monetize/monetize.application/bin/Debug/net5.0/monetize.application.dll
+/home/psych0wav3/Documentos/dev/monetize/monetize/monetize.application/bin/Debug/net5.0/ref/monetize.application.dll
+/home/psych0wav3/Documentos/dev/monetize/monetize/monetize.application/bin/Debug/net5.0/monetize.application.pdb
+/home/psych0wav3/Documentos/dev/monetize/monetize/monetize.application/bin/Debug/net5.0/monetize.domain.dll
+/home/psych0wav3/Documentos/dev/monetize/monetize/monetize.application/bin/Debug/net5.0/monetize.infra.dll
+/home/psych0wav3/Documentos/dev/monetize/monetize/monetize.application/bin/Debug/net5.0/monetize.domain.pdb
+/home/psych0wav3/Documentos/dev/monetize/monetize/monetize.application/bin/Debug/net5.0/monetize.infra.pdb
+/home/psych0wav3/Documentos/dev/monetize/monetize/monetize.application/obj/Debug/net5.0/monetize.application.csproj.AssemblyReference.cache
+/home/psych0wav3/Documentos/dev/monetize/monetize/monetize.application/obj/Debug/net5.0/monetize.application.GeneratedMSBuildEditorConfig.editorconfig
+/home/psych0wav3/Documentos/dev/monetize/monetize/monetize.application/obj/Debug/net5.0/monetize.application.AssemblyInfoInputs.cache
+/home/psych0wav3/Documentos/dev/monetize/monetize/monetize.application/obj/Debug/net5.0/monetize.application.AssemblyInfo.cs
+/home/psych0wav3/Documentos/dev/monetize/monetize/monetize.application/obj/Debug/net5.0/monetize.application.csproj.CoreCompileInputs.cache
+/home/psych0wav3/Documentos/dev/monetize/monetize/monetize.application/obj/Debug/net5.0/monetize.application.csproj.CopyComplete
+/home/psych0wav3/Documentos/dev/monetize/monetize/monetize.application/obj/Debug/net5.0/monetize.application.dll
+/home/psych0wav3/Documentos/dev/monetize/monetize/monetize.application/obj/Debug/net5.0/ref/monetize.application.dll
+/home/psych0wav3/Documentos/dev/monetize/monetize/monetize.application/obj/Debug/net5.0/monetize.application.pdb

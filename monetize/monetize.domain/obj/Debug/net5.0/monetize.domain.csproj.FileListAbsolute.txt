@@ -1,0 +1,12 @@
+/home/psych0wav3/Documentos/dev/monetize/monetize/monetize.domain/bin/Debug/net5.0/monetize.domain.deps.json
+/home/psych0wav3/Documentos/dev/monetize/monetize/monetize.domain/bin/Debug/net5.0/monetize.domain.dll
+/home/psych0wav3/Documentos/dev/monetize/monetize/monetize.domain/bin/Debug/net5.0/ref/monetize.domain.dll
+/home/psych0wav3/Documentos/dev/monetize/monetize/monetize.domain/bin/Debug/net5.0/monetize.domain.pdb
+/home/psych0wav3/Documentos/dev/monetize/monetize/monetize.domain/obj/Debug/net5.0/monetize.domain.csproj.AssemblyReference.cache
+/home/psych0wav3/Documentos/dev/monetize/monetize/monetize.domain/obj/Debug/net5.0/monetize.domain.GeneratedMSBuildEditorConfig.editorconfig
+/home/psych0wav3/Documentos/dev/monetize/monetize/monetize.domain/obj/Debug/net5.0/monetize.domain.AssemblyInfoInputs.cache
+/home/psych0wav3/Documentos/dev/monetize/monetize/monetize.domain/obj/Debug/net5.0/monetize.domain.AssemblyInfo.cs
+/home/psych0wav3/Documentos/dev/monetize/monetize/monetize.domain/obj/Debug/net5.0/monetize.domain.csproj.CoreCompileInputs.cache
+/home/psych0wav3/Documentos/dev/monetize/monetize/monetize.domain/obj/Debug/net5.0/monetize.domain.dll
+/home/psych0wav3/Documentos/dev/monetize/monetize/monetize.domain/obj/Debug/net5.0/ref/monetize.domain.dll
+/home/psych0wav3/Documentos/dev/monetize/monetize/monetize.domain/obj/Debug/net5.0/monetize.domain.pdb
