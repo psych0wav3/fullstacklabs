@@ -9,7 +9,7 @@ using monetize.infra.Context;
 namespace monetize.infra.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20211004153807_v1")]
+    [Migration("20211005205650_v1")]
     partial class v1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

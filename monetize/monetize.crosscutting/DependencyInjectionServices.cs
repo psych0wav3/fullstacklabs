@@ -1,9 +1,6 @@
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using monetize.application.services;
-using monetize.domain.Repositories;
-using monetize.infra.Context;
-using monetize.infra.Repositories;
+using monetize.domain.services;
 
 namespace monetize.crosscutting
 {
@@ -11,7 +8,10 @@ namespace monetize.crosscutting
     {
         public static IServiceCollection Execute(this IServiceCollection service)
         {
-            service.AddTransient<ConvertBalanceService>();
+            service.AddTransient<ICreateBalanceService ,CreateBalanceService>();
+            service.AddTransient<IUpdateBalanceService ,UpdateBalanceService>();
+            service.AddTransient<IHttpRates, HttpRates>();
+            service.AddTransient<IListBalanceService, ListBalanceService>();
             return service;
         }
     }

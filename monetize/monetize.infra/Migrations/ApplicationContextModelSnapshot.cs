@@ -8,7 +8,7 @@ using monetize.infra.Context;
 namespace monetize.infra.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    partial class DBContextModelSnapshot : ModelSnapshot
+    partial class ApplicationContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {

@@ -1,4 +1,3 @@
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using monetize.infra.Context;
 
@@ -8,8 +7,8 @@ namespace monetize.crosscutting
     {
         public static IServiceCollection Execute(this IServiceCollection service)
         {
-            service.AddDbContext<DbContext, ApplicationContext>();
+            service.AddDbContext<ApplicationContext>();
             return service;
         }
-    }
+  }
 }

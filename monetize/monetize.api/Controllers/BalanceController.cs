@@ -1,8 +1,8 @@
-using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using monetize.domain.dtos;
 using monetize.domain.entities;
-using monetize.domain.Repositories;
+using monetize.domain.services;
 
 namespace monetize.api.controllers
 {
@@ -10,52 +10,72 @@ namespace monetize.api.controllers
     [Route("[controller]")]
     public class BalanceController : ControllerBase
     {
-        IBaseRepository<Balance> _repository;
+        private ICreateBalanceService _convertBalanceservice;
+        private IListBalanceService _ListBalanceService;
+        private IUpdateBalanceService _UpdateBalanceService;
 
-        public BalanceController(IBaseRepository<Balance> repo){
-            _repository = repo;
+        public BalanceController(
+            ICreateBalanceService convertBalance,
+            IListBalanceService listBalance,
+            IUpdateBalanceService updateBalanceService
+        )
+        {
+            _convertBalanceservice = convertBalance;
+            _ListBalanceService = listBalance;
+            _UpdateBalanceService = updateBalanceService;
         }
         [HttpPost]
-        async public Task<ActionResult> Post([FromBody] Balance balance){
-            if(ModelState.IsValid){
-                await _repository.Create(balance);
-                await _repository.SaveChangesAsync();
-                return Ok(await _repository.Read());
+         public IActionResult Post([FromBody] CreateBalanceDTO balance)
+         {
+            if(ModelState.IsValid)
+            {
+                _convertBalanceservice.Execute(balance);
+                return Ok();
             }
-            else{
+            else
+            {
                 return BadRequest(ModelState);
             }
         }
 
         [HttpGet]
-         public ActionResult Get(){
-            if(ModelState.IsValid){
-            
-                return Ok();
+         async public Task<ActionResult> Get()
+         {
+            if(ModelState.IsValid)
+            {
+                var response = await _ListBalanceService.Execute();
+                return Ok(response);
             }
-            else{
+            else
+            {
                 return BadRequest(ModelState);
             }
         }
 
         [HttpPut]
-        public ActionResult Put(){
-            if(ModelState.IsValid){
-            
+        public ActionResult Put([FromBody] UpdateBalanceDTO balance)
+        {
+            if(ModelState.IsValid)
+            {
+                _UpdateBalanceService.Execute(balance);
                 return Ok();
             }
-            else{
+            else
+            {
                 return BadRequest(ModelState);
             }
         }
 
-        [HttpDelete]
-         public ActionResult Delete(){
-            if(ModelState.IsValid){
-            
+        [HttpPost]
+        [Route("/convert")]
+        public ActionResult PostConvert([FromBody] Balance balance)
+        {
+            if(ModelState.IsValid)
+            {
                 return Ok();
             }
-            else{
+            else
+            {
                 return BadRequest(ModelState);
             }
         }
