@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Configuration;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using monetize.application.services;
 using monetize.domain.dtos;
@@ -114,15 +115,26 @@ namespace monetize.test
         public void Test_List_Balance_Expect_Returns_List_of_Balance()
         {
             // Arrange
-            var MockListBalanceService = new Mock<IListBalanceService>().Object;
-            List<Balance> balances = new List<Balance>{
-                new Balance(),
-                new Balance(),
+             List<Balance> balances = new List<Balance>{
+                new Balance{
+                    Value = 20,
+                    Currency = Currency.BRL
+                },
+
+                new Balance{
+                    Value = 30,
+                    Currency = Currency.USD
+                }
             };
 
+            var _balanceRepo = new Mock<IBaseRepository<Balance>>();
+            _balanceRepo.Setup(x => x.Read()).Returns(Task.FromResult(balances));
+            
+            var _service = new ListBalanceService(_balanceRepo.Object);
+            
             // Act
             
-            Task<List<Balance>> result = MockListBalanceService.Execute();
+            Task<List<Balance>> result = _service.Execute();
 
             // Assert
 
@@ -132,20 +144,70 @@ namespace monetize.test
         [TestMethod]
         public void Test_convert_Balance_Expect_Returns_void_true()
         {
-            // Arrange
-            var MockConvertBalanceService = new Mock<IConvertBalanceService>().Object;
+           // Arrange
+            List<Balance> balances = new List<Balance>{
+                new Balance{
+                    Value = 20,
+                    Currency = Currency.BRL
+                },
 
+                new Balance{
+                    Value = 30,
+                    Currency = Currency.USD
+                }
+            };
+            Balance balance = new Balance();
 
+            Moviments moviment = new Moviments();
+
+                // Balance Repo config
+            var _balanceRepo = new Mock<IBaseRepository<Balance>>();
+            _balanceRepo.Setup(x => x.Read()).Returns(Task.FromResult(balances));
+            _balanceRepo.Setup(x => x.Update(It.IsAny<Balance>()));
+            _balanceRepo.Setup(x => x.SaveChangesAsync());
+
+                // Moviments Repo config
+            var _movimentRepo = new Mock<IBaseRepository<Moviments>>();
+            _movimentRepo.Setup(x => x.Create(It.IsAny<Moviments>())).Returns(Task.FromResult(moviment));
+            _movimentRepo.Setup(x => x.SaveChangesAsync());
+
+            var inMemorySettings = new Dictionary<string, string> {
+                {"IOF", "1"},
+                {"spread", "1"},
+                {"USD", "1"},
+                {"EUR", "1"},
+            };
+            IConfiguration configuration = new ConfigurationBuilder()
+            .AddInMemoryCollection(inMemorySettings)
+            .Build();
+
+            var _balanceMock = new Mock<IBalance>();
+            _balanceMock.Setup(x => x.UpdateValue(It.IsAny<Double>()));
+            
+            ConvertBalanceService _service = new ConvertBalanceService(_balanceRepo.Object, _movimentRepo.Object, configuration);
+
+            ConvertBalanceDTO _convertDTO = new ConvertBalanceDTO
+            {
+                Value = 12.45,
+                
+                Currency = Currency.BRL,
+            };
+            
+            var result = true;
+            
             // Act
             try
-            {
-                MockConvertBalanceService.Execute(new ConvertBalanceDTO());
-                return;
+            {   
+                _service.Execute(_convertDTO);
+                // Assert
 
-            }catch(Exception ex)
+            }catch(Exception)
             {
-                Assert.Fail(ex.Message);
+                result = false;
             }
+            // Assert
+            
+                Assert.IsTrue(result);   
             
         }
 

@@ -11,7 +11,6 @@
 /home/psych0wav3/Documentos/dev/monetize/monetize/monetize.infra/obj/Debug/net5.0/monetize.infra.AssemblyInfoInputs.cache
 /home/psych0wav3/Documentos/dev/monetize/monetize/monetize.infra/obj/Debug/net5.0/monetize.infra.AssemblyInfo.cs
 /home/psych0wav3/Documentos/dev/monetize/monetize/monetize.infra/obj/Debug/net5.0/monetize.infra.csproj.CoreCompileInputs.cache
-/home/psych0wav3/Documentos/dev/monetize/monetize/monetize.infra/obj/Debug/net5.0/monetize.infra.csproj.CopyComplete
 /home/psych0wav3/Documentos/dev/monetize/monetize/monetize.infra/obj/Debug/net5.0/monetize.infra.dll
 /home/psych0wav3/Documentos/dev/monetize/monetize/monetize.infra/obj/Debug/net5.0/ref/monetize.infra.dll
 /home/psych0wav3/Documentos/dev/monetize/monetize/monetize.infra/obj/Debug/net5.0/monetize.infra.pdb
