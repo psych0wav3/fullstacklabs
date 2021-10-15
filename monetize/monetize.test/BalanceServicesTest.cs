@@ -13,12 +13,6 @@ using Moq;
 
 namespace monetize.test
 {
-
-    public interface IBalance
-    {  
-        void UpdateValue(double value);
-    };
-
     [TestClass]
     public class BalanceServiceTest
     {
