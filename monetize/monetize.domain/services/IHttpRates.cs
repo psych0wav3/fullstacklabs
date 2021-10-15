@@ -5,6 +5,6 @@ namespace monetize.domain.services
 {
     public interface IHttpRates
     {
-        Task<RatesResponse> GetRatesAsync();
+        Task<RatesResponse> GetRatesAsync(string from, string to);
     }
 }

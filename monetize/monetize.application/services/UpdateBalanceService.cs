@@ -19,11 +19,11 @@ namespace monetize.application.services
     async public void Execute(UpdateBalanceDTO updateBalace)
     {
           List<Balance> ActualBalances = await _BalanceRepo.Read();
-          Balance EURBalance = ActualBalances.Find(item => item.Currency == Currency.EUR);
-          EURBalance.UpdateValue(EURBalance.Value + updateBalace.Value);  
-          _BalanceRepo.Update(EURBalance);
+          Balance BRLBalance = ActualBalances.Find(item => item.Currency == Currency.BRL);
+          BRLBalance.UpdateValue(BRLBalance.Value + updateBalace.Value);  
+          _BalanceRepo.Update(BRLBalance);
           await _BalanceRepo.SaveChangesAsync();
-          Moviments  moviment = new Moviments(updateBalace.Value, MovimentEnum.Add, EURBalance.Currency, EURBalance.Currency);
+          Moviments  moviment = new Moviments(updateBalace.Value, MovimentEnum.Add, BRLBalance.Currency, BRLBalance.Currency);
           await _MovimentRepo.Create(moviment);
           await _MovimentRepo.SaveChangesAsync();
     }

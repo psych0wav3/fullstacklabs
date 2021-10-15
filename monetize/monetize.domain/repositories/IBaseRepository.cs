@@ -11,5 +11,6 @@ namespace monetize.domain.Repositories
         void Delete( T entity);
         Task<List<T>> Read();
         Task SaveChangesAsync();
+        Task<T> GetById(T entity);
     }
 }

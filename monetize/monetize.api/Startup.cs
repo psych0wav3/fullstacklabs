@@ -7,6 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using monetize.application.error;
 using monetize.crosscutting;
 
 namespace monetize.api
@@ -22,6 +23,14 @@ namespace monetize.api
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(otp => 
+            {
+                otp.AddPolicy("CorsPolicy", builder => builder
+                .AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader());
+            });
+
             DependencyInjectionContext.Execute(services);
             DependencyInjectionReposytory.Execute(services);
             DependencyInjectionServices.Execute(services);
@@ -42,20 +51,14 @@ namespace monetize.api
             }
 
             app.UseHttpsRedirection();
-            
-            app.UseExceptionHandler(c => c.Run(async context =>
-            {
-                var exception = context.Features
-                    .Get<IExceptionHandlerPathFeature>()
-                    .Error;
-                var response = new { error = exception.Message };
-                await context.Response.WriteAsJsonAsync(response);
-            }));
-
 
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseCors("CorsPolicy");
+            
+            app.UseCustomExceptionMiddleware();
 
             app.UseEndpoints(endpoints =>
             {

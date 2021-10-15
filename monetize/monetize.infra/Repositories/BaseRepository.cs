@@ -27,6 +27,11 @@ namespace monetize.infra.Repositories
         CreateSet().Remove(entity);
     }
 
+    async public Task<T> GetById(T entity)
+    {
+        return await CreateSet().FindAsync(entity.Id);
+    }
+
     public async Task<List<T>> Read()
     {
        return await CreateSet().AsNoTracking().ToListAsync();

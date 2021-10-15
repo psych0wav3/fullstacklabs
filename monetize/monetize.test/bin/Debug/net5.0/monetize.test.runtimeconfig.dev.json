@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "/home/psych0wav3/.dotnet/store/|arch|/|tfm|",
+      "/home/psych0wav3/.nuget/packages"
+    ]
+  }
+}

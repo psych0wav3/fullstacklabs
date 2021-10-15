@@ -10,8 +10,9 @@ namespace monetize.crosscutting
         {
             service.AddTransient<ICreateBalanceService ,CreateBalanceService>();
             service.AddTransient<IUpdateBalanceService ,UpdateBalanceService>();
-            service.AddTransient<IHttpRates, HttpRates>();
             service.AddTransient<IListBalanceService, ListBalanceService>();
+            service.AddTransient<IConvertBalanceService, ConvertBalanceService>();
+            service.AddTransient<IListMovimentsService, ListMovimentsService>();
             return service;
         }
     }

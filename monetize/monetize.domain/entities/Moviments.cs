@@ -12,6 +12,8 @@ namespace monetize.domain.entities
             OldCurrency = oldCurrency;
             NewCurrency = newCurrency;
         }
+
+        public Moviments(){}
         public double Value { get; set; }
         public MovimentEnum Type { get; set; }
         [JsonConverter(typeof(StringEnumConverter))]

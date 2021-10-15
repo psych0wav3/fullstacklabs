@@ -10,26 +10,29 @@ namespace monetize.api.controllers
     [Route("[controller]")]
     public class BalanceController : ControllerBase
     {
-        private ICreateBalanceService _convertBalanceservice;
+        private ICreateBalanceService _CreateBalanceservice;
         private IListBalanceService _ListBalanceService;
         private IUpdateBalanceService _UpdateBalanceService;
+        private IConvertBalanceService _ConvertBalanceService;
 
         public BalanceController(
             ICreateBalanceService convertBalance,
             IListBalanceService listBalance,
-            IUpdateBalanceService updateBalanceService
+            IUpdateBalanceService updateBalanceService,
+            IConvertBalanceService ConvertBalanceService
         )
         {
-            _convertBalanceservice = convertBalance;
+            _CreateBalanceservice = convertBalance;
             _ListBalanceService = listBalance;
             _UpdateBalanceService = updateBalanceService;
+            _ConvertBalanceService = ConvertBalanceService;
         }
         [HttpPost]
          public IActionResult Post([FromBody] CreateBalanceDTO balance)
          {
             if(ModelState.IsValid)
             {
-                _convertBalanceservice.Execute(balance);
+                _CreateBalanceservice.Execute(balance);
                 return Ok();
             }
             else
@@ -68,10 +71,11 @@ namespace monetize.api.controllers
 
         [HttpPost]
         [Route("/convert")]
-        public ActionResult PostConvert([FromBody] Balance balance)
+        public ActionResult PostConvert([FromBody] ConvertBalanceDTO balance)
         {
             if(ModelState.IsValid)
             {
+                _ConvertBalanceService.Execute(balance);
                 return Ok();
             }
             else
